@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Fahrzeugliste</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <h1>Willkommen zur Fahrzeugübersicht!</h1>
+
+    <h2>Hier sehen Sie die Fahrzeuge.</h2>
+
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Marke</th>
+                <th>Modell</th>
+                <th>Kaufjahr</th>
+                <th>Anschaffungswert</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="f : ${fahrzeuge}">
+                <td th:text="${f.name}"></td>
+                <td th:text="${f.marke}"></td>
+                <td th:text="${f.modell}"></td>
+                <td th:text="${f.kaufjahr}"></td>
+                <td th:text="${f.anschaffungswert}"></td>
+                <td><a class="btn btn-warning" th:href="@{'/kostenstellen/' + ${f.id}}">Kostenstellen verwalten</a></td>
+                <td><a class="btn btn-warning" th:href="@{'/bearbeiten/' + ${f.id}}">Bearbeiten</a></td>
+                <td><a class="btn btn-warning" th:href="@{'/loeschen/' + ${f.id}}">Löschen</a></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <a class="btn btn-warning" href="/hinzufuegen">Neues Fahrzeug hinzufügen</a>
+</div>
+</body>
+</html>

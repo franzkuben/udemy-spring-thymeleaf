@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Fahrzeugliste</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <h1>Benutzerverwaltung</h1>
+
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Benutzername</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="b : ${benutzer}">
+                <td th:text="${b.benutzername}"></td>
+                <td><a class="btn btn-warning" th:href="@{'/benutzer/passwortaendern/' + ${b.benutzername}}">Bearbeiten</a></td>
+                <td><a class="btn btn-warning" th:href="@{'/benutzer/loeschen/' + ${b.benutzername}}">Löschen</a></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <a class="btn btn-warning" href="/benutzer/hinzufuegen">Neuen Benutzer hinzufügen</a>
+</div>
+</body>
+</html>

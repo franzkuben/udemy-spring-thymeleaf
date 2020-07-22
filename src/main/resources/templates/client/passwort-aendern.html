@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Passwort</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <h2>Password ändern</h2>
+
+    <form th:object="${password}" method="post">
+
+        <fieldset>
+            <label>Passwort</label>
+            <input class="form-control" type="password" th:field="*{pass}"/>
+            <div class="alert alert-danger" th:errors="*{pass}">[error]</div>
+        </fieldset>
+
+        <input type="submit" value="Passwort speichern">
+
+    </form>
+
+
+</div>
+</body>
+</html>

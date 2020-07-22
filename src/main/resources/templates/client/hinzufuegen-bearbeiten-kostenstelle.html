@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Fahrzeugliste</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <h2 th:text="${titel}"></h2>
+
+    <form th:object="${kostenstelle}" method="post">
+
+        <fieldset>
+            <label>Lieferant</label>
+            <input class="form-control" type="text" th:field="*{lieferant}"/>
+            <div class="alert alert-danger" th:errors="*{lieferant}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Wert</label>
+            <input class="form-control" type="number" min="0" th:field="*{wert}"/>
+            <div class="alert alert-danger" th:errors="*{wert}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Notiz</label>
+            <textarea cols="10" rows="5" maxlength="250" th:field="*{notiz}" class="form-control"></textarea>
+            <div class="alert alert-danger" th:errors="*{notiz}">[error]</div>
+        </fieldset>
+
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{fahrzeug}">
+        <input type="submit" value="Kostenstelle speichern">
+
+    </form>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Benutzer hinzufügen</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <h2>Benutzer hinzufügen</h2>
+
+    <form th:object="${benutzer}" method="post">
+
+        <fieldset>
+            <label>Benutzername</label>
+            <input class="form-control" type="text" th:field="*{benutzername}"/>
+            <div class="alert alert-danger" th:errors="*{benutzername}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Passwort</label>
+            <input class="form-control" type="password" th:field="*{passwort}"/>
+            <div class="alert alert-danger" th:errors="*{passwort}">[error]</div>
+        </fieldset>
+
+
+        <input type="submit" value="Benutzer speichern">
+
+    </form>
+
+
+</div>
+</body>
+</html>

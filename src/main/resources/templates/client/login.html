@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Fahrzeugliste</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div th:if="${param.logout}">
+                <div class="alert alert-info">
+                    Sie wurden erfolgreich ausgeloggt.
+                </div>
+            </div>
+
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">
+                    Falscher Benutzername oder Passwort.
+                </div>
+            </div>
+
+            <form action="/login" method="post">
+
+                <div class="form-group">
+                    <label for="username">Benutzername</label>
+                    <input id="username" type="text" name="username" class="form-control" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Passwort</label>
+                    <input id="password" type="password" name="password" class="form-control">
+                </div>
+
+
+                <div class="col-sm-6 col-sm-offset-3">
+                    <button type="submit" name="login-submit" id="login-submit" class="form-control" style="background-color: orange">
+                        Einloggen
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

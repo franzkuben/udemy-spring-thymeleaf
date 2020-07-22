@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Fahrzeugliste</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+    <h2 th:text="${titel}"></h2>
+
+    <form th:object="${fahrzeug}" method="post">
+
+        <fieldset>
+            <label>Name</label>
+            <input class="form-control" type="text" th:field="*{name}"/>
+            <div class="alert alert-danger" th:errors="*{name}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Marke</label>
+            <input class="form-control" type="text" th:field="*{marke}"/>
+            <div class="alert alert-danger" th:errors="*{marke}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Modell</label>
+            <input class="form-control" type="text" th:field="*{modell}"/>
+            <div class="alert alert-danger" th:errors="*{modell}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Baujahr</label>
+            <input class="form-control" type="number" min="1900" step="1" th:field="*{baujahr}"/>
+            <div class="alert alert-danger" th:errors="*{baujahr}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Anschaffungswert</label>
+            <input class="form-control" type="number" th:field="*{anschaffungswert}"/>
+            <div class="alert alert-danger" th:errors="*{anschaffungswert}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Kaufjahr</label>
+            <input class="form-control" type="number" min="1900" step="1" th:field="*{kaufjahr}"/>
+            <div class="alert alert-danger" th:errors="*{kaufjahr}">[error]</div>
+        </fieldset>
+
+        <fieldset>
+            <label>Notiz</label>
+            <textarea cols="10" rows="5" maxlength="250" th:field="*{notiz}" class="form-control"></textarea>
+            <div class="alert alert-danger" th:errors="*{notiz}">[error]</div>
+        </fieldset>
+
+        <input type="submit" value="Fahrzeug speichern">
+
+    </form>
+
+
+</div>
+</body>
+</html>

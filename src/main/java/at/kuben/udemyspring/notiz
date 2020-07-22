@@ -1,0 +1,20 @@
+Fahrzeug
+Integer id
+String namen
+String marke
+String modell
+int baujahr
+double anschaffungswert
+int kaufjahr
+String notiz
+
+Kostenstelle
+Fahrzeug f
+Integer Id
+String notiz
+double wert
+String lieferant
+
+Benutzer
+String benutzername
+String passwort

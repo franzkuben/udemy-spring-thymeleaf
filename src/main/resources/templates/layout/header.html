@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <body>
+        <th:block th:fragment="header">
+            <nav class="navbar navbar-inverse navbar-static-top">
+
+                <div class="container">
+
+                    <div class="navbar-header">
+                        <p class="headertext">Fahrzeugverwaltung</p>
+                    </div>
+
+                    <div id="navbar" class="collapse navbar-collapse">
+
+                        <ul class="nav navbar-nav">
+                            <li sec:authorize="isAuthenticated()" class="nav-item">
+                                <a href="/uebersicht">Übersicht</a>
+                            </li>
+                            <li sec:authorize="isAuthenticated()" class="nav-item">
+                                <a href="/benutzer/uebersicht">Benutzer verwalten</a>
+                            </li>
+                            <li sec:authorize="isAuthenticated()" class="nav-item">
+                                <a href="/logout">Ausloggen</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </th:block>
+    </body>
+</html>
