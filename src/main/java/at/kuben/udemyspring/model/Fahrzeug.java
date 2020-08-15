@@ -1,5 +1,8 @@
 package at.kuben.udemyspring.model;
 
+import at.kuben.udemyspring.db.BenutzerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.List;

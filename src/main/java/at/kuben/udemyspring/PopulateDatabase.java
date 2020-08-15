@@ -5,10 +5,12 @@ import at.kuben.udemyspring.db.FahrzeugRepository;
 import at.kuben.udemyspring.model.Benutzer;
 import at.kuben.udemyspring.model.Fahrzeug;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(value = 1)
 public class PopulateDatabase implements CommandLineRunner {
 
     private FahrzeugRepository fahrzeugRepo;
